@@ -1,0 +1,34 @@
+export PREFIX=/tmp/coucou
+export TEMP=/tmp
+export DYLD_LIBRARY_PATH=$PREFIX/rust/lib:$DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$PREFIX/cargo/lib:$DYLD_LIBRARY_PATH
+export OPENSSL_ROOT_DIR=$PREFIX/openssl/openssl-1.0.2f
+export OPENSSL_LIB_DIR=$PREFIX/openssl/openssl-1.0.2f/lib
+export OPENSSL_LIB_BIB=$PREFIX/openssl/openssl-1.0.2f/bin
+export OPENSSL_INCLUDE_DIR=$PREFIX/openssl/openssl-1.0.2f/include/openssl
+export DYLD_LIBRARY_PATH=$OPENSSL_LIB_DIR:$DYLD_LIBRARY_PATH
+export PATH="$PATH:$DYLD_LIBRARY_PATH:$OPENSSL_ROOT_DIR:$OPENSSL_INCLUDE_DIR:$OPENSSL_LIB_DIR:$OPENSSL_LIB_BIB:$HOME/dot2tex/build/scripts-2.7/:$HOME/.brew/bin:/Library/TeX/Distributions/Programs/texbin:$PREFIX/rust/bin:$PREFIX/cargo/bin"
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$PATH
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$PATH
+mkdir -p $PREFIX/openssl/openssl-1.0.2f
+mkdir -p $TEMP/openssl
+curl -sSfL http://www.openssl.org/source/openssl-1.0.2f.tar.gz | tar zx -C $TEMP/openssl
+cd $TEMP/openssl/openssl-1.0.2f
+$TEMP/openssl/openssl-1.0.2f/configure darwin-i386-cc -fPIC -shared --openssldir=$PREFIX/openssl/openssl-1.0.2f --prefix=$PREFIX/openssl/openssl-1.0.2f
+make -C $TEMP/openssl/openssl-1.0.2f all
+lipo -create $TEMP/openssl/openssl-1.0.2f/libcrypto.1.0.0.dylib -output $PREFIX/openssl/openssl-1.0.2f/libcrypto.1.0.0.dylib
+lipo -create $TEMP/openssl/openssl-1.0.2f/libssl.1.0.0.dylib -output $PREFIX/openssl/openssl-1.0.2f/libssl.1.0.0.dylib
+make -C $TEMP/openssl/openssl-1.0.2f install
+mkdir -p $PREFIX/rust
+git clone https://github.com/rust-lang/rust.git $TEMP/rust
+cd $TEMP/rust
+$TEMP/rust/configure --prefix=$PREFIX/rust
+make -C $TEMP/rust all
+make -C $TEMP/rust install
+mkdir -p $PREFIX/cargo
+mkdir -p $TEMP/cargo
+git clone --recursive https://github.com/rust-lang/cargo $TEMP/cargo
+cd $TEMP/cargo
+$TEMP/cargo/configure --local-rust-root=$PREFIX/rust --prefix=$PREFIX/cargo
+make -C $TEMP/cargo/ all
+make -C $TEMP/cargo/ install

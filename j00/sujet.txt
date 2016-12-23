@@ -1,0 +1,175 @@
+
+
+## A new Challenger
+* ex00
+* a_new_challenger.sh
+* None
+
+Ecrire la commande shell permettant de creer un environement virtuel grace a python3 (Utiliser la commande venv est interdite !)
+	Cette commande creera un dossier `new_challenger`
+	```
+	$> ./a_new_challenger.sh
+	$> ls new_challenger | wc
+	4       4      27
+	$>
+	```
+## Hello World
+	* ex01
+	* helloworld.py
+	* All
+
+	Ecrire un programme qui affiche ```Hello World !``` suivi d'une nouvelle ligne
+	```
+	$> ./helloworld.py
+	Hello World !
+	$>
+	```
+## Reverse
+	* ex02
+	* revsplit.py
+	* All
+
+	Ecrire une fonction `revsplit` prend une chaine de caractere en parametre et qui affiche tout les mots de cette chaine dans l'ordre inverse suivi d'une nouvelle ligne, Si aucun parametre est envoyer, affichez `! erreur une a y Il`. Le paramettre envoyer sera toujours une chaine de caractere
+	```
+	>>> revsplit("J'aime les pates au beurre !")
+	! beurre au pates les J'aime
+	>>> revsplit("J'aime les        espaces     !")
+	! espaces les J'aime
+	>>> revsplit("")
+
+>>> revsplit()
+	! erreur une a y Il
+	>>>
+	```
+## My name in base64
+	* ex03
+	* mynameinbase64.py
+	* All
+
+	Ecrire un programme qui prend un parametre.
+	Afficher la base 64 du parametre en minuscule suivi d'une nouvelle ligne
+	Si trop ou aucun parametre est envoyer, ecrire `RVJST1IgIQ==`
+	```
+	$> ./mynameinbase64.py bob
+	Ym9i
+	$> ./mynameinbase64.py BOB
+	Ym9i
+	$> ./mynameinbase64.py "My name is JOHN CENA !"
+	bXkgbmFtZSBpcyBqb2huIGNlbmEgIQ==
+	$> ./mynameinbase64.py bob john
+	RVJST1IgIQ==
+	$> ./mynameinbase64.py
+	RVJST1IgIQ==
+	$>
+	```
+## Tokens
+	* ex04
+	* tokens.py
+	* All
+
+	Ecrire un programme qui prend en parametre un fichier et un nombre n de chaine de caractere.
+	Le programme doit afficher si la clef est valide, c'est a dire: si le md5 de la chaine de caractere est dans le fichier.
+	Si elle existe, afficher a l'ecran `CHAIN is valid` sinon afficher `CHAIN is invalid` suivis d'un retour a la ligne.
+	Si il existe au moin une chaine valide, Vous devez creer un nouveau fichier `FILENAME.new` avec les chaines non utilisee
+	Si moins de deux parametre est envoyer, retournez "Error !"
+	Le fichier est toujours existant et valide.
+	```
+	$> cat tokens.list
+	d707f3401f3bc741b7460b68988bab8d
+	92df19e29c9d45d888ed5f68bad1c3b5
+	76664954b755041e2eb6390bd3e20196
+	72b302bf297a228a75730123efef7c41
+	ef86916bc6f9f2f6866df100a192161f
+	2d9140411b361d2a492367d3069fd678
+	aeeb0a644a7d972265a0074739bd84fd
+	37670f216e9f412ccac2d3d1d904e272
+	f6d928890d38b3f5b76ff5ca7db8959c
+	0674272bac0715f803e382b5aa437e08
+	78056ebb02cffc14bb7ece14904812dc
+	9033e0e305f247c0c3c80d0c7848c8b3
+	$> ./tokens.py tokens.list banana tokens
+	banana is valid
+	tokens is invalid
+	$> cat tokens.list.new
+	d707f3401f3bc741b7460b68988bab8d
+	92df19e29c9d45d888ed5f68bad1c3b5
+	76664954b755041e2eb6390bd3e20196
+	ef86916bc6f9f2f6866df100a192161f
+	2d9140411b361d2a492367d3069fd678
+	aeeb0a644a7d972265a0074739bd84fd
+	37670f216e9f412ccac2d3d1d904e272
+	f6d928890d38b3f5b76ff5ca7db8959c
+	0674272bac0715f803e382b5aa437e08
+	78056ebb02cffc14bb7ece14904812dc
+	9033e0e305f247c0c3c80d0c7848c8b3
+	$> ./tokens.py tokens.list.new banana
+	banana is invalid
+	$> ./tokens.py tokens.list
+	Error !
+	$> ./tokens.py
+	Error !
+	$>
+	```
+## Digicode
+	* ex05
+	* digicode.py
+	* All
+
+	Ecrire un programme qui prendra un chaine de caractere en paramettre, Ce programme retournera le premier nombre qui grace a la concatenation de la chaine et de ce nombre, donnera une chaine commencant par '00000' quand elle est hasher en MD5
+	Exemple : digicode => digicode105164 => 00000725d4373fd1534346a53e78c37e
+	Si il y a pas d'argument, afficher 0!
+	```
+	$> ./digicode.py digicode
+	105164
+	$> ./digicode.py my_password
+	670557
+	$> ./digicode.py
+	0
+	$>
+	```
+## Minesweeper
+	* ex06
+	* minesweeper.py
+	* All
+
+	Ecrire un programme qui prendra un fichier contenant des retours une map de demineur fini, vous devez indiquer combien de bombe est a coter de chaque case en ecrivant un nombre de 0 a 8.
+	Sur la map, X represente une bombe.
+	Si il y a pas d'argument, afficher `Error !`
+	```
+	$> cat easy.txt
+	....
+	..XX
+	X...
+	$> ./minesweeper.py easy.txt
+	0122
+	12XX
+	X222
+	$> cat bad.txt
+	...X
+	..X
+	X...
+	$> ./minesweeper.py bad.txt
+	Error !
+	$> ./minesweeper.py notfound.txt
+	Error !
+	$>
+	```
+## work - Equation bilan
+	* ex07
+	* work.py
+	* All
+
+	Ecrire un programme qui affiche prend une chaine de caractere en paramettre et qui egalise cette derniere d'apres l'equation bilan.
+	Lachaine passer en paramettre est toujours valide.
+	```
+	$> ./work.py "C + O2 -> CO2"
+	C + O2 -> CO2
+	$> ./work.py "C + O2 -> CO"
+	2 C + O2 -> 2 CO
+	$> ./work.py "Fe + O2 -> Fe3O4"
+	3 Fe + 2 O2 -> Fe3O4
+	$> ./work.py "C4H10 + O2 -> CO2 + H2O"
+	2 C4H10 + 13 O2 -> 8 CO2 + 10 H2O
+	$> ./work.py
+	Error !
+	```

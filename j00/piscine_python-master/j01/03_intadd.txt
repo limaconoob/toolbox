@@ -1,0 +1,14 @@
+## int add n
+* ex03
+* int_add.py
+* All
+
+Ecrire un lambda `int_add` qui prend en paramettre un tableau d'int et qui retourne un tableau dont est ajouter, pour chaque nombre, sa position dans le tableau
+```
+>>> int_add([0, 0, 0, 0])
+[1, 2, 3, 4]
+>>> int_add([1, 5, 10, 4])
+[2, 7, 13, 8]
+>>> int_add([])
+[]
+```

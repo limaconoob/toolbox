@@ -1,0 +1,14 @@
+## Remove Quotes
+* ex06
+* remove_quotes.py
+* All
+
+Ecrire un lambda `remove_quotes` qui prend en paramettre un tableau de variable (soit des int, soit des str) et qui retourne le meme tableau avec suppression des quotes (simple, double et back), les nombres doivent rester des nombres !.
+```
+>>> remove_quotes([1, 2, 5, 4])
+[1, 2, 5, 4]
+>>> remove_quotes(['"`lol`"', '`asdf`',"''", 42])
+['lol', 'asdf', '', 42]
+>>> remove_quotes([])
+[]
+```

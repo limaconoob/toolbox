@@ -1,0 +1,13 @@
+## A new Challenger
+* ex00
+* a_new_challenger.sh
+* None
+
+Ecrire la commande shell permettant de creer un environement virtuel grace a python3 (Utiliser la commande venv est interdite !)
+Cette commande creera un dossier `new_challenger`
+```
+$> ./a_new_challenger.sh
+$> ls new_challenger | wc
+       4       4      27
+$>
+```

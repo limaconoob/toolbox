@@ -1,0 +1,21 @@
+## My name in base64
+* ex03
+* mynameinbase64.py
+* All
+
+Ecrire un programme qui prend un parametre.  
+Afficher la base 64 du parametre en minuscule suivi d'une nouvelle ligne
+Si trop ou aucun parametre est envoyer, ecrire `RVJST1IgIQ==`
+```
+$> ./mynameinbase64.py bob
+Ym9i
+$> ./mynameinbase64.py BOB
+Ym9i
+$> ./mynameinbase64.py "My name is JOHN CENA !"
+bXkgbmFtZSBpcyBqb2huIGNlbmEgIQ==
+$> ./mynameinbase64.py bob john
+RVJST1IgIQ==
+$> ./mynameinbase64.py
+RVJST1IgIQ==
+$>
+```

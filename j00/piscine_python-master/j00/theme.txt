@@ -1,0 +1,13 @@
+Bienvenue codeur !
+Tu as etait choisi pour acomplir peu importante mais qui te prendra 2 semaines
+
+Votre premiere mission sera d'equilibrer des equations bilan !  
+Pour cela, il vous faudra:
+- configurer votre espace de travail
+- prouver que vous exister
+- preparer votre repas
+- recuperer votre nom de chimiste
+- valider votre token d'authentification
+- rentrer le code
+- esquiver les pieges
+- et quand meme, commencer votre travail

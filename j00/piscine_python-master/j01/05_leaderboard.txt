@@ -1,0 +1,15 @@
+## Leaderboard
+* ex05
+* leaderboard.py
+* All
+
+Ecrire un lambda `leaderboard` qui prend en paramettre un dict contenant un nom de joueur et son score.  
+Retourner les nom de joueur dans l'ordre decroissant  
+```
+>>> leaderboard({'a': 1, 'b': 2})
+['b', 'a']
+>>> leaderboard({'asdf': 42, 'banana': 54})
+['banana', 'asdf']
+>>> leaderboard({})
+[]
+```

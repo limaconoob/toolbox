@@ -1,0 +1,17 @@
+## Reverse
+* ex02
+* revsplit.py
+* All
+
+Ecrire une fonction `revsplit` prend une chaine de caractere en parametre et qui affiche tout les mots de cette chaine dans l'ordre inverse suivi d'une nouvelle ligne, Si aucun parametre est envoyer, affichez `! erreur une a y Il`. Le paramettre envoyer sera toujours une chaine de caractere
+```
+>>> revsplit("J'aime les pates au beurre !")
+! beurre au pates les J'aime
+>>> revsplit("J'aime les        espaces     !")
+! espaces les J'aime
+>>> revsplit("")
+
+>>> revsplit()
+! erreur une a y Il
+>>>
+```

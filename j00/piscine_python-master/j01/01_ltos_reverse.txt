@@ -1,0 +1,14 @@
+## list to str reverse
+* ex01
+* ltos_rev.py
+* All
+
+Ecrire un lambda `ltos_rev` qui prend en paramettre un tableau d'int et qui retourne la chaine de caractere contenant ses nombres dans l'ordre decroissant.
+```
+>>> ltos_rev([1, 2, 3, 4])
+'4 3 2 1'
+>>> ltos_rev([1, 2, 5, 4])
+'5 4 2 1'
+>>> ltos_rev([])
+''
+```

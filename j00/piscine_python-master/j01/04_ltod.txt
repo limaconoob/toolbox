@@ -1,0 +1,14 @@
+## list to dict
+* ex04
+* ltod.py
+* All
+
+Ecrire un lambda `ltod` qui prend en paramettre un tableau contant autant de nombre que de str et qui retourne le dict dont le str est la key et le int la value. L'entree n'auras JAMAIS un nombre impaire d'element
+```
+>>> ltod(['a', 1, 'b', 2])
+{'a': 1, 'b': 2}
+>>> ltod(['asdf', 42, 'banana', 54])
+{'banana': 54, 'asdf': 42}
+>>> ltod([])
+{}
+```

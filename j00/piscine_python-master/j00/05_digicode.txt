@@ -1,0 +1,17 @@
+## Digicode
+* ex05
+* digicode.py
+* All
+
+Ecrire un programme qui prendra un chaine de caractere en paramettre, Ce programme retournera le premier nombre qui grace a la concatenation de la chaine et de ce nombre, donnera une chaine commencant par '00000' quand elle est hasher en MD5  
+Exemple : digicode => digicode105164 => 00000725d4373fd1534346a53e78c37e  
+Si il y a pas d'argument, afficher 0!
+```
+$> ./digicode.py digicode
+105164
+$> ./digicode.py my_password
+670557
+$> ./digicode.py
+0
+$>
+```

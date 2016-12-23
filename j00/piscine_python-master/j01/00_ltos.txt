@@ -1,0 +1,14 @@
+## list to str
+* ex00
+* ltos.py
+* All
+
+Ecrire un lambda `ltos` qui prend en paramettre un tableau d'int et qui retourne lachaine de caractere contenant ces nombres dans l'ordre croissant.
+```
+>>> ltos([1, 2, 3, 4])
+'1 2 3 4'
+>>> ltos([1, 2, 5, 4])
+'1 2 4 5'
+>>> ltos([])
+''
+```

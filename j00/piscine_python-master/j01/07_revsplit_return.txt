@@ -1,0 +1,17 @@
+## Reverse Return
+* ex07
+* revsplit_return.py
+* All
+
+Ecrire un lambda `revsplit_r` qui fait exactement la meme chose que la fonction `revsplit` du j00 (ex02) sauf qu'elle retourne la chaine de caractere au lieu de l'afficher
+```
+>>> revsplit_r("J'aime les pates au beurre !")
+"! beurre au pates les J'aime"
+>>> revsplit_r("J'aime les        espaces     !")
+"! espaces les J'aime"
+>>> revsplit_r("")
+''
+>>> revsplit_r()
+'! erreur une a y Il'
+>>>
+```

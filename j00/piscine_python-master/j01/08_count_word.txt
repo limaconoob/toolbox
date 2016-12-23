@@ -1,0 +1,15 @@
+## count_word
+* ex08
+* count_word.py
+* All
+
+Ecrire un lambda `count_word` qui prend en paramettre un str et un tableau de str et qui retourne un tableau contenant les tuples de chaque mot du tableau lier au nombre de mots dans la chaine.  
+Un mot est toujours separer par des espaces !
+```
+>>> count_word("1 2 3 4 2 4 3    3 4 4", ["1", "2", "3"])
+[('1', 1), ('2', 2), ('3', 3)]
+>>> count_word("Faire le lambda 'count_all_word' sans tableau compte comme un bonus\nExemple:\n >>> count_all_word('1 2 3 4 2 4 3    3 4 4')\n[('1', 1), ('2', 2), ('3', 3), ('4', 4)]", [">>>", "Exemple:", "1", "Not_Found"])
+[('>>>', 1), ('4', 3), ('1', 0), ('Not_Found', 0)]
+>>> count_word("noooo", [])
+[]
+```

@@ -1,0 +1,11 @@
+## Hello World
+* ex01
+* helloworld.py
+* All
+
+Ecrire un programme qui affiche ```Hello World !``` suivi d'une nouvelle ligne
+```
+$> ./helloworld.py
+Hello World !
+$>
+```

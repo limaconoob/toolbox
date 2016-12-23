@@ -1,0 +1,16 @@
+## How many cars ?
+* ex02
+* cars.py
+* All
+
+Ecrire un lambda `cars` qui prend en paramettre deux int, le premier representant un nombre de personne, le second, un nombre de place par vehicule et qui retourne le nombre minimum de vehicule a acheter. Un vehicule n'aura jamais moins de une place.
+```
+>>> cars(2, 5)
+1
+>>> cars(5, 5)
+1
+>>> cars(6, 5)
+2
+>>> cars(15, 5)
+3
+```

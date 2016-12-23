@@ -1,0 +1,6 @@
+(defvar *cur-color* sdl:*blue*)
+(defvar *brush-size* 10)
+(defvar *cursor* 'carré)
+(defvar *r* 0)
+(defvar *g* 0)
+(defvar *b* 255)

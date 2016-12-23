@@ -1,0 +1,33 @@
+(ql:quickload "lispbuilder-sdl")
+
+(defun empty (list) (= (length list) 0))
+
+(defvar d 20)
+(defvar i 0)
+(defvar b 0)
+(defun init-window (x y k name)
+  (sdl:with-init ()
+      (sdl:window (+ x 1) (+ y 1) :title-caption name)
+      (setf (sdl:frame-rate) 60)
+      (sdl:clear-display sdl:*black*)
+	  (init-grid 1000 1000 20 0)
+      (sdl:update-display)
+	  (sdl:disable-key-repeat)
+	  (sdl:initialise-default-font)
+	  (sdl:enable-unicode)
+	  (sdl:unicode-enabled-p)
+      (sdl:with-events ()
+	    (:quit-event () t)
+		(:key-down-event ())
+  		(:idle ()
+		  (when (sdl:key-state-p) (draw-character-* (get-char (sdl:key-down-p) )))
+		  (sdl:update-display)))))
+
+(defun main (argv)
+  (if (= (length argv) 4)
+	(init-window (parse-integer (get-item argv 1) :junk-allowed t)
+				 (parse-integer (get-item argv 2) :junk-allowed t)
+				 d
+				 (get-item argv 3))))
+
+(sb-int:with-float-traps-masked (:invalid :inexact :overflow) (main *posix-argv*))

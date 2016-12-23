@@ -1,0 +1,23 @@
+(ql:quickload "lispbuilder-sdl")
+
+(defun wheel ()
+  (print "1")
+  (sdl:with-init ()
+	(sdl:window 200 50 :title-caption "Bonjour-wheel")
+	(print "2")
+	(setf (sdl:frame-rate) 60)
+	(sdl:clear-display sdl:*black*)
+	(sdl:update-display)
+	(sdl:with-events ()
+;	  (:mouse-button-down-event (:button sdl:mouse-wheel-down-p))
+	  (:idle ()
+		(when (sdl:mouse-left-p)
+		  (print (sdl:mouse-buttons)))
+ 	  (when (sdl:mouse-wheel-down-p)
+		  (print "OK"))))))
+
+(defun main (argv)
+  (print argv)
+  (wheel))
+
+(sb-int:with-float-traps-masked (:invalid :inexact :overflow) (main *posix-argv*))

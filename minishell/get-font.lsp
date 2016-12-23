@@ -1,0 +1,28 @@
+(ql:quickload "lispbuilder-sdl")
+
+(defvar prompt "e3r7p2% ")
+
+(defun init-window ()
+  (sdl:with-init ()
+	  (sdl:window 1 1)
+	  (setf (sdl:frame-rate) 7)
+	  (sdl:disable-key-repeat)
+	  (sdl:initialise-default-font)
+	  (sdl:enable-unicode)
+	  (sdl:unicode-enabled-p)
+      (sdl:with-events ()
+		(format t "~A" prompt)
+	    (:quit-event () t)
+		(:key-down-event ())
+  		(:idle ()
+		  (when (sdl:key-state-p)
+			(if (sdl:key-state-p :sdl-key-return)
+			  (format t "~%~A" prompt)
+			  (format t "~A" (sdl:key-state-p)))
+		  )))))
+
+(defun main (argv)
+  (if argv () ())
+  (init-window) ())
+
+(sb-int:with-float-traps-masked (:invalid :inexact :overflow) (main *posix-argv*))

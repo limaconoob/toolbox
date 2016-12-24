@@ -1,5 +1,5 @@
 #include <iostream>
-#include "neko.h"
+#include "lib.h"
 
 void start(t_lbstat *lib, int *coucou)
 { (void)lib;

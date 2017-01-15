@@ -6,7 +6,7 @@
 /*   By: jpepin <jpepin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 03:37:32 by jpepin            #+#    #+#             */
-/*   Updated: 2017/01/15 06:41:07 by jpepin           ###   ########.fr       */
+/*   Updated: 2017/01/15 07:35:49 by jpepin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ void report_memory(void)
 
 void procpid(pid_t pid)
 { struct proc_bsdinfo proc;
+struct proc_vnodepathinfo vpi;
   char pathbuf[PROC_PIDPATHINFO_MAXSIZE];
+int ret = proc_pidinfo(pid, PROC_PIDVNODEPATHINFO, 0, &vpi, sizeof(vpi));
   int st = proc_pidinfo(pid, PROC_PIDTBSDINFO, 0, &proc, PROC_PIDTBSDINFO_SIZE);
   proc_pidpath(pid, pathbuf, sizeof(pathbuf));
+printf(" cwd: %s\n", vpi.pvi_cdir.vip_path);
   printf("path: %s\n", pathbuf);
   printf("name: %s\n", proc.pbi_name);
   printf("comm: %s\n", proc.pbi_comm);
@@ -67,6 +70,16 @@ void procpid(pid_t pid)
 void pidlist(void)
 { int bufsize = proc_listpids(PROC_ALL_PIDS, 0, NULL, 0);
   pid_t pids[2 * bufsize / sizeof(pid_t)];
+  bufsize = proc_listchildpids(38777, pids, sizeof(pids));
+  size_t num_pids = bufsize / sizeof(pid_t);
+  printf("size::%d, pids::%zu\n", bufsize, num_pids);
+  int i = 0;
+  while (i < 5)
+  { printf("pid[%d]::%d\n", i, pids[i]);
+    procpid(pids[i]);
+    printf("\n-------------------------------\n\n");
+    i += 1; }}
+/*
   bufsize = proc_listpids(PROC_ALL_PIDS, 0, pids, sizeof(pids));
   size_t num_pids = bufsize / sizeof(pid_t);
   printf("size::%d, pids::%zu\n", bufsize, num_pids);
@@ -76,7 +89,7 @@ void pidlist(void)
     procpid(pids[i]);
     printf("\n-------------------------------\n\n");
     i += 1; }}
-
+*/
 void usefork(void)
 { pid_t father;
   char buf;

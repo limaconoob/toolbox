@@ -1,0 +1,6 @@
+/usr/include/sys/sysctl.h
+/usr/include/sys/proc_info.h
+/usr/include/sys/proc.h
+/usr/include/sys/syslog.h
+/usr/include/sys/syscall.h
+/usr/include/mach/mach_traps.h

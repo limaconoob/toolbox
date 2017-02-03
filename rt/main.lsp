@@ -17,11 +17,9 @@
 		(if (= index rayon)
 			( )
 			(and 
-				(print (+ x index))
-				(print (+ y (nth-value 0 (floor (* (sin i) rayon)))))
-				(print 'X)
+				(print (list 'X (+ x index) 'Y (+ y (nth-value 0 (floor (* (sin i) rayon)))) 'XY (* (+ y (nth-value 0 (floor (* (sin i) rayon)))) fen-width) 'RETOUR (+ x index (* (+ y (nth-value 0 (floor (* (sin i) rayon)))) fen-width))))
 				(setf (nth (+ x index (* (+ y (nth-value 0 (floor (* (sin i) rayon)))) fen-width)) matrix) rouge)
-				;(setf (nth (+ x index (* (- y (nth-value 0 (floor (* (sin i) rayon)))) fen-width)) matrix) rouge)
+				(setf (nth (+ x index (* (- y (nth-value 0 (floor (* (sin i) rayon)))) fen-width)) matrix) rouge)
 				(setf index (+ index 1)))))
 	(setf index 0))
 
@@ -31,7 +29,8 @@
   (sdl:window fen-width fen-height :title-caption (cadr list))
   (setf (sdl:frame-rate) 60)
 	(le-cercle 200 100 50)
-	(print matrix)
+	(print (list-length matrix))
+	;(print matrix)
 	(setf tmp matrix)
 	(sdl:with-pixel (pix (sdl:fp sdl:*default-display*))
 		(loop for y from 0 to fen-height by 1 do

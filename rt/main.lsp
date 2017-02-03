@@ -8,28 +8,42 @@
 (defvar fond noir)
 (defvar forme vert)
 
-(defun le-cercle (plan x y rayon)
-  (loop for i from 0.0 to 3.14 by (/ 1.0 rayon) do
-		(print (+ x i))
-		;plan[y + (nth-value 0 (floor (* (sin i) rayon)))][x + i]
-		;plan[y - (nth-value 0 (floor (* (sin i) rayon)))][x + i]
-		(print (nth-value 0 (floor (* (sin i) rayon)))))
-)
+(defvar index 0)
 
-(defvar matrix (make-list fen-height :initial-element (make-list fen-width :initial-element 255)))
+(defvar matrix (make-list (* fen-height fen-width) :initial-element noir))
+
+(defun le-cercle (x y rayon)
+  (loop for i from 0.0 to 3.14 by (/ 1.0 rayon) do
+		(if (= index rayon)
+			( )
+			(and 
+				(print (+ x index))
+				(print (+ y (nth-value 0 (floor (* (sin i) rayon)))))
+				(print 'X)
+				(setf (nth (+ x index (* (+ y (nth-value 0 (floor (* (sin i) rayon)))) fen-width)) matrix) rouge)
+				;(setf (nth (+ x index (* (- y (nth-value 0 (floor (* (sin i) rayon)))) fen-width)) matrix) rouge)
+				(setf index (+ index 1)))))
+	(setf index 0))
+
+(defvar tmp)
 
 (defun fenster (list)
   (sdl:window fen-width fen-height :title-caption (cadr list))
+  (setf (sdl:frame-rate) 60)
+	(le-cercle 200 100 50)
+	(print matrix)
+	(setf tmp matrix)
 	(sdl:with-pixel (pix (sdl:fp sdl:*default-display*))
 		(loop for y from 0 to fen-height by 1 do
 			(loop for x from 0 to fen-width by 1 do
-				(if (or (< y 400) (> y 500))
-					(sdl:write-pixel pix x y fond)
-					(sdl:write-pixel pix x y forme)))))
-  (setf (sdl:frame-rate) 60)
+				(and
+					(if (and (or (< y 400) (> y 500)) (not (null tmp)))
+						(sdl:write-pixel pix x y (nth 0 tmp))
+						(if (not (null tmp))
+							(sdl:write-pixel pix x y forme)
+							(sdl:write-pixel pix x y noir)))
+					(setf tmp (cdr tmp))))))
   (sdl:update-display)
-
-	(le-cercle matrix 400 400 50)
 
 	(sdl:with-events ()
 	  (:quit-event () t)
